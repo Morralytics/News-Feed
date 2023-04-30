@@ -1,4 +1,5 @@
 from os import getenv
+from flask import g
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -14,4 +15,6 @@ def init_db():
   Base.metadata.create_all(engine)
 
 def get_db():
-  return Session()
+  if 'db' not in g:
+    g.db = Session()
+  return g.db
