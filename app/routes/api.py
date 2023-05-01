@@ -79,3 +79,25 @@ def comment():
     db.rollback()
     return jsonify(message = 'Comment failed'), 500  
   return jsonify(id = newComment.id)
+
+@bp.route('/posts/upvote', methods=['PUT'])
+def upvote():
+  data = request.get_json()
+  db = get_db()
+
+  try:
+    newVote = Vote(
+      user_id = session.get('user_id'),
+      post_id = data['post_id'],
+    )
+
+    db.add(newVote)
+    db.commit()
+
+  except:
+    print(sys.exc_info()[0])
+
+    db.rollback()
+    return jsonify(message = 'Upvote failed'), 500
+  
+  return '', 204
