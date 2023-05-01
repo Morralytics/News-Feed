@@ -78,6 +78,7 @@ def comment():
 
     db.rollback()
     return jsonify(message = 'Comment failed'), 500  
+  
   return jsonify(id = newComment.id)
 
 @bp.route('/posts/upvote', methods=['PUT'])
@@ -102,7 +103,7 @@ def upvote():
   
   return '', 204
 
-@bp.route('/posts', method=['POST'])
+@bp.route('/posts', methods=['POST'])
 def create():
   data = request.get_json()
   db = get_db()
@@ -146,13 +147,12 @@ def delete(id):
   db = get_db()
 
   try:
-    post = db.query(Post).filter(Post.id == id).one()
-    db.delete(post)
+    db.delete(db.query(Post).filter(Post.id == id).one())
     db.commit()
   except:
     print(sys.exc_info()[0])
 
     db.rollback()
     return jsonify(message = 'Post not found'), 404
-  
+
   return '', 204
