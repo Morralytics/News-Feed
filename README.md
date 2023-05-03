@@ -46,7 +46,7 @@ python -m flask run
 
 ## Usage
 
-Join the [Tech News](https://glazed-and-confused.herokuapp.com/) community here!
+Join the [Tech News](https://news-tech.herokuapp.com/) community here!
 
 
 ## Contributors
