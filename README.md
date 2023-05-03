@@ -22,6 +22,11 @@ Since Python is a popular alternative to Node.js, I will be learning this alongs
 
 Python is a great alternative that has many built in modules that can be imported and called upon in a variety of situations. The technology I ended up making use of the most was Python's ORM tool called SQLAlchemy which is what created my models and use the global Session object to perform the necessary CRUD operations.
 
+## * **Update** *
+
+This application currently has a work in progress build to which its objective is to translate the Jinja templating into the React framework. The backend based in Python will remain the same so it will utilize a language that differs from my background in JavaScript. Since the backend has already been mostly built by myself, I simply need to make sure they run together smoothly and alter the element rendering.
+
+This new application is still under development however if you would like to check out the progress of the refactored Discoverable News app, you can view the repository [HERE](https://github.com/Morralytics/Discoverable-News).
 
 ## Table of Contents
 
